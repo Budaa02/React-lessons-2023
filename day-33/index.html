@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React-Day-01</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <h1>Day - 33 - ReactJS Introduction</h1>
+
+    <div id="root"></div>
+    <div id="root_text"></div>
+    <div id="images-01"></div>
+    <div id="selector"></div>
+    <div id="inputs"></div>
+    <script type="text/babel">
+        function Hello() {
+            return <h1> Hello React</h1>
+        }
+        ReactDOM.render(<Hello />, document.getElementById("root"))
+       
+        function CreateP() {
+            return <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, debitis.</p>
+        }
+        ReactDOM.render(<CreateP />, document.getElementById("root_text"))
+        function CreateImage() {
+            return <img src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/udHvbKwV-IMG-Dubai-UAE-1.jpg" alt="dota2"/> 
+        }
+        ReactDOM.render(<CreateImage />, document.getElementById("images-01"))
+        function Selector() {
+            return <select name="">
+                <option value="1">1</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                </select>
+            
+        }
+        ReactDOM.render(<Selector />, document.getElementById("selector"))
+        function Inputs() {
+            return <input type="text"/>
+        }
+        ReactDOM.render(<Inputs />, document.getElementById("inputs"))
+    </script>
+
+
+
+
+    <script crossorigin="" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</body>
+
+</html>
