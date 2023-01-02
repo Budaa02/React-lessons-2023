@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white; 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,47 @@
   to {
     transform: rotate(360deg);
   }
+}
+.App-header h1 {
+  color:black;
+  border-bottom: 2px solid black;
+  width:70%;
+} */
+*{
+  box-sizing: border-box;
+}
+
+.App h1 {
+  text-align: center;
+}
+.app-card { 
+  display:flex;
+  justify-content: center;
+  
+}
+.app-card img {
+  width:150px;
+  height:150px;
+}
+.submit {
+  display:flex;
+  align-items: center;
+
+}
+.submit img {
+  border-radius: 50%;
+  width:25px;
+  height: 25px;
+}
+.app-card-append{
+  margin-left:20px
+}
+.arrow {
+  display:flex;
+  align-items: center;
+}
+.arrow img {
+  width: 10px;
+  height: 10px;
+  
 }
