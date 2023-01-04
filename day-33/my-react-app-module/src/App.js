@@ -8,19 +8,19 @@ function App() {
       <h1 className="bg-dark">Popular Product</h1>
       <hr></hr>
       <div className="app-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1160/1160358.png"/>
+        <img src="https://cdn-icons-png.flaticon.com/512/1160/1160358.png" />
         <div className="app-card-append">
           <div className="arrow">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>55</p>
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>55</p>
           </div>
           <p>Haught or Naught</p>
           <p>Hight-minded or absent-minded?You decide.</p>
-         
+
           <div className="submit">
-          <p className="submit-1">Submitted by:</p>
-        
-          <img src={human} className="learn" alt="human" />
+            <p className="submit-1">Submitted by:</p>
+
+            <img src={human} className="learn" alt="human" />
           </div>
         </div>
       </div>
