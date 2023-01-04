@@ -6,7 +6,7 @@ import products from "./seed"
 import Product from "./product"
 // function Profile({img, name, age, hobby, heigth} ) {
 //   // console.log("props", props);
-  
+
 //   // const {img, name, age, hobby, heigth} = props;
 //   return (
 //     <div className="profile">
@@ -29,37 +29,43 @@ function App() {
   //   age:20,
   //   hobby: "Frontend Developer"
   // }
+  for (let i = 0; i < products.length; i++){
+    console.log(products[i]);
+    <ProductFunc 
+    title={products[i].title}
+    />
+  }
 
-  const productList = products.map((product)=> {
+  const productList = products.map((product) => {
     console.log(product);
-    return <ProductFunc 
-    title={product.title}
-    submitterAvatarUrl={product.submitterAvatarUrl}
-    description={product.description}
-    id={product.id}
-    votes={product.votes}
-    url={product.url}
-    productImageUrl={product.productImageUrl}
+    return <ProductFunc
+      title={product.title}
+      submitterAvatarUrl={product.submitterAvatarUrl}
+      description={product.description}
+      id={product.id}
+      votes={product.votes}
+      url={product.url}
+      productImageUrl={product.productImageUrl}
     />
   })
-  const productList2 = products.map((product)=> {
+  const productList2 = products.map((product) => {
     return <Product
-    title={product.title}
-    submitterAvatarUrl={product.submitterAvatarUrl}
-    description={product.description}
-    id={product.id}
-    votes={product.votes}
-    url={product.url}
-    productImageUrl={product.productImageUrl}
+      title={product.title}
+      submitterAvatarUrl={product.submitterAvatarUrl}
+      description={product.description}
+      id={product.id}
+      votes={product.votes}
+      url={product.url}
+      productImageUrl={product.productImageUrl}
     />
   })
   return (
     <div className="App">
-     {/* <Product/>
+      {/* <Product/>
      <Productfunc/> */}
-     {/* <Productfunc/> */}
-     {/* {productList} */}
-     {productList2}
+      {/* <Productfunc/> */}
+      {productList}
+      {/* {productList2} */}
       {/* <Profile
       img="https://images.prismic.io/mystique/5d7c09b9-40e5-4254-ae1c-2c1cb59aa898_IMG3.jpg?auto=compress,format"
       name="John Smith"
