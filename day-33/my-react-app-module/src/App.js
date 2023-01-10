@@ -1,13 +1,11 @@
+import "./App.css";
+import products from "./seed";
+import ProductFunc from "./components/ProductFunc";
 
-import './App.css';
-import products from './seed';
-import ProductFunc from './components/ProductFunc';
-
-
-function App() {
-
+function App(props) {
   const productList = products.map((product) => {
-    console.log(product)
+    console.log(product);
+
     return (
       <ProductFunc
         title={product.title}
@@ -17,13 +15,34 @@ function App() {
         votes={product.votes}
         submitterAvatarUrl={product.submitterAvatarUrl}
         productImageUrl={product.productImageUrl}
-      />)
-  })
+      />
+    );
+  });
   return (
-    <div><h1>
-      Hello</h1>
-      { productList }</div>
-    
+    <div className="container">
+      <h1>Popular Product</h1><hr></hr>
+      <div id="content"></div>
+      {productList}
+      {/* <h1>{productList}</h1>
+      <hr></hr>
+      <div>
+        <div>
+          <img />
+        </div>
+        <div>
+          <a></a>
+        </div>
+        <div>
+          <a></a>
+          <p></p>
+        </div>
+        <div>
+          <span></span>
+          <img />
+        </div>
+        <span></span>
+      </div> */}
+    </div>
   );
 }
 

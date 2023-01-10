@@ -1,9 +1,9 @@
-import products from "../seed.js"
-import ProductFunc from "./ProductFunc.jsx"
+// import products from "../seed.js"
+// import ProductFunc from "./ProductFunc.jsx"
 
-const productList = 
+// const productList = asd
 
-export default productList
+// export default productList
 
 
 
