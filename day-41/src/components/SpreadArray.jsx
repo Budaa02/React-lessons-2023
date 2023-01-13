@@ -4,6 +4,8 @@ export default function List() {
     let nextId = 0;
     const [name, setName] = useState("");
     const [books, setBook] = useState([]);
+    console.log(name);
+    console.log(books);
     return (
         <div>
             <h1>Book List</h1>
@@ -21,11 +23,11 @@ export default function List() {
                 Add
 
             </button>
-            <ul>
+            {/* <ul>
                 {books.map((book) => (
                     <li key={book.id}>{book.name}</li>
                 ))}
-            </ul>
+            </ul> */}
         </div>
     )
 }
