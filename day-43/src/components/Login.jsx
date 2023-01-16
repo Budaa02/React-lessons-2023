@@ -3,10 +3,10 @@ export default function Login () {
         <div>
             <h1>Its is Login page</h1>
             <form>
-                <label for="email">Email:</label>
+                <label htmlFor="email">Email:</label>
                 <input type="email" type="email"/>
                 <br></br>
-                <label for="password">Password:</label>
+                <label htmlFor="password">Password:</label>
                 <input type="password" name="password"/>
                 <br></br>
                 <button>
