@@ -12,7 +12,7 @@ import Usukhuu from './components/about/Usukhuu';
 import Khangai from './components/about/Khangai';
 import NotFound from './components/about/NotFound';
 
-
+// soligdohgui bna
 
 
 function App() {
