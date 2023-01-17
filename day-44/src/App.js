@@ -8,7 +8,8 @@ import AboutPage from './components/AboutPage';
 import HomePage from './components/HomePage';
 import Movies from './components/Movies';
 import Movie from './components/Movie';
-
+import GalleryPage from "./components/GalleryPage"
+import ToasterPage from './components/ToasterPage';
 function App() {
   return (
     <div className="App">
@@ -21,7 +22,9 @@ function App() {
           <Route path={"/home"} element={<HomePage/>} />
           <Route path={"/movies"} element={<Movies/>} />
           <Route path={"/movie/:id"} element={<Movie/>} />
-        </Routes>
+          <Route path={"/gallery"} element={<GalleryPage/>} />
+          <Route path={"/toast"} element={<ToasterPage/>} />
+         </Routes>
 
     </div>
   );
