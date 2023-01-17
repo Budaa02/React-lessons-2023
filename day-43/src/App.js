@@ -1,20 +1,18 @@
-import logo from './logo.svg';
+
 import './App.css';
-import { useState } from "react";
-import FeedbackFrom from './components/FeedbackFrom';
-import { BrowserRouter } from 'react-router-dom';
-import { Routes, Route } from "react-router-dom"
+
+import { Routes, Route, Link } from "react-router-dom"
 import About from "./components/About"
 import Feedbackfrom from './components/FeedbackFrom';
 import Login from "./components/Login"
 import Register from "./components/Register"
 import Home from "./components/Home"
-import Test from "./components/Test"
+
 import Usukhuu from './components/about/Usukhuu';
 import Khangai from './components/about/Khangai';
 import NotFound from './components/about/NotFound';
 
-
+// soligdohgui bna
 
 
 function App() {
@@ -23,15 +21,13 @@ function App() {
     <div className="App">
       <h1>Day-43 - React Routes</h1>
       <div id="navbar">
-        <a href="/">Home</a>
-        <a href="/about">about</a>
-        <a href="/feedbackform">feedback</a>
-        <a href="/login">login</a>
-        <a href="/register">register</a>
+        <Link to={"/"}>Home</Link>
+        <Link to={"/about"}>about</Link>
+        <Link to={"/feedbackform"}>feedback</Link>
+        <Link to={"/login"}>login</Link>
+        <Link to={"/register"}>register</Link>
       </div>
-      <Routes>
-
-      </Routes>
+   
       <Routes>
 
 
