@@ -3,7 +3,6 @@ import './App.css';
 import Counter from './component/Counter';
 
 
-let className= "counter"
 
 
 function App() {
