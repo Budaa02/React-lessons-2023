@@ -6,6 +6,7 @@ import Anime from "./components/Anime";
 import Button from "./components/Button";
 import TopAnime from "./components/TopAnime";
 import Exercises from "./components/Exercises";
+import FindEvenOdd from "./components/Ex-Find-Even";
 
 function App() {
   const [text, setText] = useState("");
@@ -33,6 +34,7 @@ function App() {
       <Button />
       <TopAnime /> */}
       <Exercises />
+      <FindEvenOdd />
     </div>
   );
 }
