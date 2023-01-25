@@ -12,12 +12,30 @@ export default function Timer({
   project,
   elapsed,
   runningSince,
-  runningtime,
+  id,
+  onTrashClick,
+  onStartClick,
+  onStopClick,
+  onEditClick,
 }) {
   const [timerIsRunning, setTimerIsRunnig] = useState(false);
-  const [runningTime, setRunningTime] = useState(0);
   const timer = renderElapsedString(elapsed, runningSince);
 
+  function handleEditClick() {
+    onEditClick(id);
+  }
+
+  function handleStartClick() {
+    onStartClick(id);
+  }
+
+  function handleDelete() {
+    onTrashClick(id);
+  }
+
+  function handleStopClick() {
+    onStopClick(id);
+  }
   return (
     <Container maxWidth="sm">
       <Card sx={{ maxWidth: 345 }}>
@@ -39,9 +57,7 @@ export default function Timer({
             justifyContent: "center",
             alignItems: "center",
           }}
-        >
-          <h1>{runningtime}</h1>
-        </Box>
+        ></Box>
         <Box
           sx={{
             display: "flex",
@@ -59,18 +75,17 @@ export default function Timer({
             marginBottom: 2,
           }}
         >
-          <DeleteIcon />
-          <ModeEditIcon />
+          <DeleteIcon onClick={handleDelete} />
+
+          <ModeEditIcon onClick={handleEditClick} />
         </Box>
         <TimerActionButton
-          isTimerRunning={timerIsRunning}
-          onStartClick={() => {
-            console.log("on start click");
-            setTimerIsRunnig(true);
-          }}
-          onStopClick={() => {
-            setTimerIsRunnig(false);
-          }}
+          isTimerRunning={runningSince}
+          onStartClick={handleStartClick}
+          // onStartClick={() => {
+          //   console.log("on start click");
+          // }}
+          onStopClick={handleStopClick}
         />
       </Card>
     </Container>
