@@ -21,14 +21,13 @@ app.get("/data", (request, response) => {
 });
 
 app.post("/data", (request, response) => {
-  console.log(request.body);
   const length = data.length;
   const newData = {
     id: length + 1,
     name: request.body.name,
     major: request.body.major,
   };
-  data.push(newData);
+  data = [...data, newData];
   response.json(data);
 });
 app.delete("/data", (request, response) => {
@@ -39,6 +38,21 @@ app.delete("/data", (request, response) => {
   //   };
   //   data.pop(id);
   const newData = data.filter((d) => d.id !== request.body.id);
+  data = newData;
+  response.json(data);
+});
+
+app.put("/data", (request, response) => {
+  const found = data.filter((d) => d.id !== request.body.id);
+  console.log(found);
+  console.log(request.body);
+  console.log(data);
+  const newData = data.map((d) => {
+    if (d.id === request.body.id) {
+      (d.name = request.body.name), (d.major = request.body.major);
+    }
+    return d;
+  });
   data = newData;
   response.json(data);
 });
