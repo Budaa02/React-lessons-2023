@@ -9,12 +9,6 @@ function App() {
   return (
     <div className="App">
       <h1>Admin Panel Project</h1>
-      <Routes>
-        {/* <Route
-          path="/users"
-          element={<Users />}
-        /> */}
-      </Routes>
       <PersistentDrawerLeft />
     </div>
   );
