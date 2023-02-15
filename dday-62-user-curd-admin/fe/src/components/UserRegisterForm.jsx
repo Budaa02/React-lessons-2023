@@ -101,7 +101,7 @@ export default function UserRegisterForm() {
               variant="filled"
               size="small"
               defaultValue=""
-              label="Last Name"
+              label="email"
             />
           </Grid>
           <Grid
