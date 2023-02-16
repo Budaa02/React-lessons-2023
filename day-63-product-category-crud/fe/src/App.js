@@ -1,7 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import CategoryEditForm from "./components/CategoryEditForm";
 import CategoryForm from "./components/CategoryForm";
 import Categories from "./components/Categories";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="App">
@@ -17,13 +19,10 @@ function App() {
         />
         <Route
           path="/category/edit/:id"
-          element={null}
-        />
-        <Route
-          path="/category/delete/:id"
-          element={null}
+          element={<CategoryEditForm />}
         />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -10,6 +11,24 @@ export default function Categories() {
     const FETCHED_DATA = await fetch(URL);
     const FETCHED_JSON = await FETCHED_DATA.json();
     if (FETCHED_JSON.status === "success") {
+      setCategories(FETCHED_JSON.data);
+    }
+  }
+  async function handleCategoryDelete(categoryId) {
+    console.log(categoryId);
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        categoryId: categoryId,
+      }),
+    };
+    const FETCHED_DATA = await fetch(URL, options);
+    const FETCHED_JSON = await FETCHED_DATA.json(); // {status: "success", data:}
+    if (FETCHED_JSON.status === "success") {
+      toast(`Category with id =  ${categoryId} deleted successfully`);
       setCategories(FETCHED_JSON.data);
     }
   }
@@ -33,10 +52,16 @@ export default function Categories() {
                   <td>{category.id}</td>
                   <td>{category.name}</td>
                   <td>
-                    <button>Edit</button>
+                    <a href={`/category/edit/${category.id}`}>Edit</a>
                   </td>
                   <td>
-                    <button>Delete</button>
+                    <button
+                      onClick={() => {
+                        handleCategoryDelete(category.id);
+                      }}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               );

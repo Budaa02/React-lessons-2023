@@ -4,7 +4,7 @@ console.log("day-63 Category CRUD");
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
-const { uuid } = require("uuidv4");
+// const { uuid } = require("uuidv4");
 
 const PORT = 8080;
 
@@ -16,6 +16,7 @@ app
   .post((request, response) => {
     const body = request.body;
     console.log(body);
+    const isEdit = body.isEdit;
     const categoryData = fs.readFileSync("./data/categories.json", {
       encoding: "utf-8",
       flag: "r",
@@ -53,6 +54,50 @@ app
     response.json({
       status: "success",
       data: JSON.parse(readCategoryData),
+    });
+  })
+  .delete((request, response) => {
+    const body = request.body;
+    console.log(body);
+
+    const savedCategories = fs.readFileSync("./data/categories.json", {
+      encoding: "utf-8",
+      flag: "r",
+    });
+    const savedCategoriesObject = JSON.parse(savedCategories);
+
+    const filteredCategories = savedCategoriesObject.filter(
+      (category) => category.id != body.categoryId
+    );
+    console.log(filteredCategories.length);
+    fs.writeFileSync(
+      "./data/categories.json",
+      JSON.stringify(filteredCategories)
+    );
+    response.json({
+      status: "success",
+      data: filteredCategories,
+    });
+  })
+  .put((request, response) => {
+    const body = request.body;
+    console.log(body);
+
+    const catId = body.categoryId;
+
+    const savedCategories = fs.readFileSync("./data/categories.json", {
+      encoding: "utf-8",
+      flag: "r",
+    });
+
+    const savedCategoriesObjectArray = JSON.parse(savedCategories);
+    const foundCategory = savedCategoriesObjectArray.filter(
+      (category) => category.id === catId
+    )[0];
+
+    response.json({
+      status: "success",
+      data: foundCategory,
     });
   });
 app.listen(PORT, () => {
