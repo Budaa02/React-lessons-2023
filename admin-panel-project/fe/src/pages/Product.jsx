@@ -16,12 +16,12 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { Link, Route, Routes } from "react-router-dom";
 import Users from "../pages/Users";
 import NewUserForm from "../components/NewUserForm";
+import UserRole from "../components/User_role";
+import User_role_register from "../components/User_role_register";
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -139,10 +139,26 @@ export default function PersistentDrawerLeft() {
             <ListItemButton>
               <ListItemIcon>
                 <PeopleAltIcon />
+
                 {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
               </ListItemIcon>
               <Link to="/users">
                 <ListItemText primary={"Users"} />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+            // key={1}
+            disablePadding
+          >
+            <ListItemButton>
+              <ListItemIcon>
+                <PeopleAltIcon />
+
+                {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+              </ListItemIcon>
+              <Link to="/user_role">
+                <ListItemText primary={"User_role"} />
               </Link>
             </ListItemButton>
           </ListItem>
@@ -160,6 +176,15 @@ export default function PersistentDrawerLeft() {
             path="/new"
             element={<NewUserForm />}
           />
+          <Route
+            path="/user_role"
+            element={<UserRole />}
+          />
+          <Route
+            path="/user_role_register"
+            element={<User_role_register />}
+          />
+
           {/* <Route
           path="/users"
           element={<Users />}
