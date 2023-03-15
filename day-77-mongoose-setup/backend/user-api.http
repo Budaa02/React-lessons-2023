@@ -1,0 +1,15 @@
+GET http://localhost:8080/users HTTP/1.1 
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/user HTTP/1.1 
+Content-Type: application/json
+
+{
+    "name": "budaa",
+    "email": "1990-01-01",
+    "createOn": "2010-01-01"
+}
+
+###
