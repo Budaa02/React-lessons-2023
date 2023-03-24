@@ -4,6 +4,7 @@ const adminApi = express.Router();
 // const admin = require("../models/users");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const UserRole = require("../models/UserRole");
 
 adminApi.get("/list", (request, response) => {
   response.status(200).json({
@@ -11,27 +12,37 @@ adminApi.get("/list", (request, response) => {
   });
 });
 adminApi.post("/register", async (request, response) => {
-  const { email, password } = request.body;
-  const oldUser = Users.findOne({ email: email });
+  const data = request.body;
+  console.log(data);
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-  if (oldUser) {
-    Users.create({ email: email, password: hashedPassword })
-      .then((data) => {
-        response.status(201).json({
-          message: "Hereglegch amjilttai uuslee",
-          email: data.email,
-        });
-        return;
-      })
-      .catch((error) => {
-        response.status(500).json({
-          success: false,
-          error,
-        });
+  if (data) {
+    const oldUser = await Users.findOne({ email: data.email });
+    if (oldUser) {
+      return response.status(400).json({
+        success: false,
+        status: "hereglegch ali hediin uussen baina.",
       });
+    }
+    var hashedPassword = await bcrypt.hash(data.password, 10);
+    data.password = hashedPassword;
+
+    try {
+      const user = await Users.create(data);
+      const result = await user.populate("userrole");
+      response.status(201).json({
+        message: "hereglegch amjilttai uuslee",
+        data: result,
+      });
+    } catch (error) {
+      response.status(500).json({
+        success: false,
+        error: error,
+      });
+    }
   } else {
-    return response.json({ error: "Input field is empty" });
+    return response.json({
+      error: "the input field is empty",
+    });
   }
 });
 adminApi.post("/login", async (request, response) => {
@@ -71,6 +82,23 @@ adminApi.post("/login", async (request, response) => {
       error: error,
     });
   }
+});
+
+adminApi.post("/role/create", async (req, res) => {
+  const { name } = req.body;
+
+  const result = await UserRole.create({ name });
+
+  res.status(200).json({
+    data: result,
+  });
+});
+
+adminApi.get("/role/list", async (req, res) => {
+  const result = await UserRole.find({});
+  res.status(200).json({
+    data: result,
+  });
 });
 
 module.exports = adminApi;

@@ -3,14 +3,16 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const adminApi = require("./routes/admin-api");
 const api = require("./routes/api");
+require("dotenv").config();
 
-const PORT = 8080;
+const PORT = process.env.PORT;
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use("/adminApi", adminApi);
 app.use("/api", api);
-const MONGO_CONNECTION_STRING =
-  "mongodb+srv://budaa0215:F4dcf9120177@samurai0215.1e9fs28.mongodb.net/test";
+
+const MONGO_CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING;
 
 app.get("/", (request, response) => {
   response.status(200).send("<h1>Day-92-authorize-with-jwt</h1>");
