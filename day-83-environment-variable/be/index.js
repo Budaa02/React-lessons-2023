@@ -12,9 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (request, response) => {
-  response.json({
-    data: [],
-  });
+  response.status(200).send("<h1>Day-86-MongoDB Transaction</h1>");
 });
 
 app.listen(PORT, () => {
