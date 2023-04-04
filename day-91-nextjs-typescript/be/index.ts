@@ -40,6 +40,7 @@ app.get("/", (req: Request, res:Response) => {
   res.status(200).send(name);
 });
 app.use("/theaters",theaterRouter)
+// app.use("/comments",theaterRouter)
 
 
 app.listen(PORT, () => {

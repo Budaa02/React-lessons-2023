@@ -1,9 +1,26 @@
 import TheaterModel from "../models/theaters.model";
 import { Request, Response} from "express"
+import CommentsModel from "../models/comments.model";
 
-export const getTheaters = async (req:Request,res:Response) => {
+export const getComments = async (req:Request, res:Response) => {
+    const page: number = Number (req.query.page);
+    const moviesPerPage: number = Number (req.query.moviesPerPage);
     try{
-        const theaters = await TheaterModel.find({});
+        const comments = await CommentsModel.find({})
+        .limit(moviesPerPage)
+        .skip(moviesPerPage * page);
+        res.status(200).json(comments);
+    } catch (error) {
+        res.status(404).json({data:[]});
+    }
+}
+export const getTheaters = async (req:Request,res:Response) => {
+    const page: number = Number (req.query.page);
+    const moviesPerPage: number = Number (req.query.moviesPerPage);
+    try{
+        const theaters = await TheaterModel.find({})
+        .limit(moviesPerPage)
+        .skip(moviesPerPage * page);
         res.status(200).json(theaters);
     } catch (error) {
         res.status(404).json({data:[]});
