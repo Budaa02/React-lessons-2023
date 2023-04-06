@@ -1,6 +1,6 @@
 import { Request, Response} from "express"
 import moviesModel from "../models/movies.models";
-export const getComments = async (req:Request, res:Response) => {
+export const getMovies = async (req:Request, res:Response) => {
     const page: number = Number (req.query.page);
     const moviesPerPage: number = Number (req.query.moviesPerPage);
     try{

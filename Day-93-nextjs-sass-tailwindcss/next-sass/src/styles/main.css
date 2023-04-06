@@ -1,0 +1,49 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  display: block;
+  text-decoration: none;
+}
+
+.info {
+  background: DarkGray;
+  box-shadow: 0 0 1px rgba(169, 169, 169, 0.25);
+  color: #fff;
+}
+
+.alert {
+  background: DarkRed;
+  box-shadow: 0 0 1px rgba(139, 0, 0, 0.25);
+  color: #fff;
+}
+
+.success {
+  background: DarkGreen;
+  box-shadow: 0 0 1px rgba(0, 100, 0, 0.25);
+  color: #fff;
+}
+
+il:nth-child(3n+1) {
+  background-color: ligthen(#036, 5);
+}
+
+il:nth-child(3n+2) {
+  background-color: ligthen(#036, 10);
+}
+
+il:nth-child(3n+3) {
+  background-color: ligthen(#036, 15);
+}
+
+/*# sourceMappingURL=main.css.map */

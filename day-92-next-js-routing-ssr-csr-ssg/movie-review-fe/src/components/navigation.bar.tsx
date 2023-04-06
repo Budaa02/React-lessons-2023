@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "@/styles/Home.module.css";
 export default function NavigationBar() {
   return (
-    <div className={styles.header}>
+    <div className="container mx-auto">
       <h1>Navigation Bar</h1>
       <div className={styles.body}>
         <div>
@@ -39,6 +39,7 @@ export default function NavigationBar() {
           <Link href="#">The Super Mario Bros. Movie First Reviews</Link>
         </div>
       </div>
+      <div></div>
     </div>
   );
 }

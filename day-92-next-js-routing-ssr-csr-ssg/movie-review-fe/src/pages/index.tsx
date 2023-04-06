@@ -2,6 +2,7 @@ import NavigationBar from "@/components/navigation.bar";
 import React from "react";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import MoviesData from "@/components/movies";
 
 export async function getServerSideProps() {
   const theaterRequest = await fetch("http://localhost:8081/theaters/list");
@@ -20,7 +21,8 @@ export default function Home(props: any): JSX.Element {
   const side = typeof window ? "client" : "server";
   return (
     <div>
-      <NavigationBar />{" "}
+      <NavigationBar />
+      <MoviesData />{" "}
       {/* <div>Welcome</div>
       <div>You are currently on the {side}-side.</div>
       <Link href="/about">About Page</Link>
