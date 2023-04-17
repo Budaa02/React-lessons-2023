@@ -3,7 +3,7 @@ interface IComments {
    _id:{type:mongoose.Schema.Types.ObjectId, ref:"_id"},
    name:string,
    email:string,
-   movie_id:{type: mongoose.Schema.Types.ObjectId, ref: "movie_id"},
+   movie_id:{type: mongoose.Schema.Types.ObjectId, ref: "Movies"},
    text:string,
    date:Date
 }
