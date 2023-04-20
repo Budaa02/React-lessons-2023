@@ -20,7 +20,9 @@ export default function Register() {
   }, [formData]);
   const fetchRoles = async () => {
     const FETCHED_DATA = await fetch(ROLE_URL);
+    console.log(FETCHED_DATA);
     const FETCHED_JSON = await FETCHED_DATA.json();
+    console.log(FETCHED_JSON);
 
     setRoles(FETCHED_JSON.data);
   };
